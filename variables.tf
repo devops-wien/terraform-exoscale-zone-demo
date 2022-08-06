@@ -1,3 +1,9 @@
+variable "zone" {
+  description = "Zone"
+  type        = string
+  default     = "at-vie-1"
+}
+
 variable "sks_key" {
   description = "Exoscale account API key"
   type        = string
@@ -8,22 +14,25 @@ variable "sks_secret" {
   type        = string
 }
 
-variable "dns_names" {
-  type    = list(string)
-  default = ["example.com"]
-}
-
-variable "target_port" {
-  type    = number
-  default = 80
-}
-
-variable "image" {
-  type    = string
-  default = "yeasy/simple-web"
-}
-
 variable "email" {
   type    = string
   default = "exmaple@example.org"
 }
+
+variable "deployments" {
+  description = "(Block) Deployment image / target_port"
+  type        = list(object({
+    target_port = number
+    image       = string
+    dns_names   = list(string)
+  }))
+  default = [
+    {
+      target_port = 80
+      image       = "yeasy/simple-web"
+      dns_names   = ["example.com"]
+    }
+  ]
+}
+
+

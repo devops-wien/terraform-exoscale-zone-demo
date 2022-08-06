@@ -8,7 +8,7 @@ module "sks" {
 
 module "sks_nodepool" {
   source                 = "devops-wien/sks_nodepool/exoscale"
-  version                = "0.0.2"
+  version                = "0.0.3"
   client_certificate     = module.sks.client_certificate
   client_key             = module.sks.client_key
   cluster_ca_certificate = module.sks.cluster_ca_certificate

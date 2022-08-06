@@ -5,8 +5,8 @@ resource "random_string" "prefix_name" {
 }
 
 module "sks" {
-  #source = "devops-wien/sks/exoscale"
-  source      = "../terraform-exoscale-sks"
+  source = "devops-wien/sks/exoscale"
+  #source      = "../terraform-exoscale-sks"
   version     = "0.0.3"
   key         = var.sks_key
   secret      = var.sks_secret
@@ -15,8 +15,8 @@ module "sks" {
 }
 
 module "sks_nodepool" {
-  #source                 = "devops-wien/sks_nodepool/exoscale"
-  source                 = "../terraform-exoscale-sks_nodepool"
+  source                 = "devops-wien/sks_nodepool/exoscale"
+  #source                 = "../terraform-exoscale-sks_nodepool"
   version                = "0.0.4"
   client_certificate     = module.sks.client_certificate
   client_key             = module.sks.client_key

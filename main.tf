@@ -31,7 +31,9 @@ module "sks_nodepool" {
 }
 
 module "deployment" {
-  source                 = "../terraform-kubernetes-deployment"
+  source                 = "devops-wien/deployment/kubernetes"
+  version                = "0.0.3"
+  #source                 = "../terraform-kubernetes-deployment"
   count                  = length(var.deployments)
   client_certificate     = module.sks.client_certificate
   client_key             = module.sks.client_key

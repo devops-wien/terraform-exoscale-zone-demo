@@ -17,7 +17,7 @@ module "sks" {
 module "sks_nodepool" {
   source                 = "devops-wien/sks_nodepool/exoscale"
   #source                 = "../terraform-exoscale-sks_nodepool"
-  version                = "0.0.4"
+  version                = "0.0.5"
   client_certificate     = module.sks.client_certificate
   client_key             = module.sks.client_key
   cluster_ca_certificate = module.sks.cluster_ca_certificate

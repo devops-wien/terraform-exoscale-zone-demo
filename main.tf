@@ -5,7 +5,7 @@ resource "random_string" "prefix_name" {
 }
 
 module "sks" {
-  source = "devops-wien/sks/exoscale"
+  source      = "devops-wien/sks/exoscale"
   #source      = "../terraform-exoscale-sks"
   version     = "0.0.3"
   key         = var.sks_key

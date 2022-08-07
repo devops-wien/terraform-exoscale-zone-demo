@@ -16,23 +16,25 @@ variable "sks_secret" {
 
 variable "email" {
   type    = string
-  default = "exmaple@example.org"
+  default = "example@example.org"
 }
 
-variable "deployments" {
-  description = "(Block) Deployment image / target_port"
-  type        = list(object({
-    target_port = number
-    image       = string
-    dns_names   = list(string)
-  }))
-  default = [
-    {
-      target_port = 80
-      image       = "yeasy/simple-web"
-      dns_names   = ["example.com"]
-    }
-  ]
+variable "target_port" {
+  type    = number
+  default = 80
 }
 
+variable "image" {
+  type    = string
+  default = "yeasy/simple-web"
+}
 
+variable "cloudflare_api_token" {
+  type = string
+  description = "api_token (String) The API Token for operations. Alternatively, can be configured using the CLOUDFLARE_API_TOKEN environment variable"
+}
+
+variable "cloudflare_zone_id" {
+  type = string
+  description = "(Required) The DNS zone ID to add the record to"
+}

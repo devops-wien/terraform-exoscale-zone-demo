@@ -3,5 +3,5 @@ output "prefix_name" {
 }
 
 output "url" {
-  value = "https://${cloudflare_record.sks_record.hostname}"
+  value = local.url
 }

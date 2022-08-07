@@ -30,16 +30,24 @@ module "sks_nodepool" {
   prefix_name            = local.prefix_name
 }
 
+resource "cloudflare_record" "sks_record" {
+  zone_id = var.cloudflare_zone_id
+  name    = "${local.prefix_name}_${var.zone}"
+  value   = module.sks_nodepool.nlb_ip_address
+  type    = "A"
+  ttl     = 1
+  proxied = true
+}
+
 module "deployment" {
   source                 = "devops-wien/deployment/kubernetes"
-  version                = "0.0.3"
+  version                = "0.0.4"
   #source                 = "../terraform-kubernetes-deployment"
-  count                  = length(var.deployments)
   client_certificate     = module.sks.client_certificate
   client_key             = module.sks.client_key
   cluster_ca_certificate = module.sks.cluster_ca_certificate
   host                   = module.sks.host
-  dns_names              = var.deployments[count.index].dns_names
-  image                  = var.deployments[count.index].image
-  target_port            = var.deployments[count.index].target_port
+  dns_names              = [cloudflare_record.sks_record.hostname]
+  image                  = var.image
+  target_port            = var.target_port
 }

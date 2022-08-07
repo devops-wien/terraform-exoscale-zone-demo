@@ -39,6 +39,15 @@ resource "cloudflare_record" "sks_record" {
   proxied = true
 }
 
+resource "cloudflare_record" "sks_record_env" {
+  zone_id = var.cloudflare_zone_id
+  name    = var.env_name
+  value   = module.sks_nodepool.nlb_ip_address
+  type    = "A"
+  ttl     = 1
+  proxied = true
+}
+
 module "deployment" {
   source                 = "devops-wien/deployment/kubernetes"
   version                = "0.0.6"

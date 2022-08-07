@@ -38,3 +38,13 @@ variable "cloudflare_zone_id" {
   type = string
   description = "(Required) The DNS zone ID to add the record to"
 }
+
+variable "env_name" {
+  type = string
+  description = "Name"
+  default = "dev"
+  validation {
+    condition     = var.env_name == "dev" || var.env_name == "prod"
+    error_message = "The env_name value must be a valid. (dev or prod)"
+  }
+}

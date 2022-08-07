@@ -1,6 +1,6 @@
 resource "random_string" "prefix_name" {
   length  = 6
-  lower   = true
+  upper   = false
   special = false
 }
 

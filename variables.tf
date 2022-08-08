@@ -21,7 +21,7 @@ variable "email" {
 
 variable "target_port" {
   type    = number
-  default = 80
+  default = 3000
 }
 
 variable "image" {

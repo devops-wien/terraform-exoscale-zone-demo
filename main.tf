@@ -47,7 +47,7 @@ resource "cloudflare_record" "sks_record_env" {
   proxied = true
 }
 
-
+/*
 module "deployment" {
   source                 = "devops-wien/deployment/kubernetes"
   version                = "0.0.8"
@@ -57,7 +57,8 @@ module "deployment" {
   cluster_ca_certificate = module.sks.cluster_ca_certificate
   host                   = module.sks.host
   dns_names              = ["${var.zone}.${var.domain}", "${var.env_name}.${var.domain}"]
-  image                  = "var.image"
-  target_port            = 80
+  image                  = var.image
+  target_port            = var.target_port
   zone                   = var.zone
 }
+*/

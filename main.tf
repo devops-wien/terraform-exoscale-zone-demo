@@ -50,7 +50,7 @@ resource "cloudflare_record" "sks_record_env" {
 
 module "deployment" {
   source                 = "devops-wien/deployment/kubernetes"
-  version                = "0.0.6"
+  version                = "0.0.7"
   #source                 = "../terraform-kubernetes-deployment"
   client_certificate     = module.sks.client_certificate
   client_key             = module.sks.client_key
@@ -59,4 +59,5 @@ module "deployment" {
   dns_name               = local.hostname
   image                  = var.image
   target_port            = var.target_port
+  zone                   = var.zone
 }

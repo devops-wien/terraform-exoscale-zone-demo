@@ -12,6 +12,7 @@ output "cluster_url" {
 
 output "cloudflare_api_token" {
   value = var.cloudflare_api_token
+  sensitive = true
 }
 
 output "cloudflare_zone_id" {

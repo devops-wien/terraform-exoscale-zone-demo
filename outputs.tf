@@ -11,7 +11,7 @@ output "cluster_url" {
 }
 
 output "cloudflare_api_token" {
-  value = local.cluster_url
+  value = var.cloudflare_api_token
 }
 
 output "cloudflare_zone_id" {

@@ -48,3 +48,8 @@ variable "env_name" {
     error_message = "The env_name value must be a valid. (dev or prod)"
   }
 }
+
+variable "domain" {
+  type = "string"
+  description = "Domain-Name (e.g. example.com)"
+}

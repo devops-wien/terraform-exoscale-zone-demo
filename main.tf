@@ -25,14 +25,13 @@ module "sks_nodepool" {
   host                   = module.sks.host
   key                    = var.sks_key
   secret                 = var.sks_secret
-  email                  = var.email
   zone                   = var.zone
   prefix_name            = local.prefix_name
 }
 
 resource "cloudflare_record" "sks_record" {
   zone_id = var.cloudflare_zone_id
-  name    = "${var.zone}"
+  name    = "${var.zone}.${var.env_name}"
   value   = module.sks_nodepool.nlb_ip_address
   type    = "A"
   ttl     = 1
@@ -48,6 +47,7 @@ resource "cloudflare_record" "sks_record_env" {
   proxied = true
 }
 
+/*
 module "deployment" {
   source                 = "devops-wien/deployment/kubernetes"
   version                = "0.0.8"
@@ -61,3 +61,4 @@ module "deployment" {
   target_port            = var.target_port
   zone                   = var.zone
 }
+*/

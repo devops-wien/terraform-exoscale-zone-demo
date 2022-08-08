@@ -14,6 +14,7 @@ variable "sks_secret" {
   type        = string
 }
 
+/*
 variable "email" {
   type    = string
   default = "example@example.org"
@@ -28,6 +29,7 @@ variable "image" {
   type    = string
   default = "devopswien/docker-nextjs-demo"
 }
+*/
 
 variable "cloudflare_api_token" {
   type = string

@@ -31,7 +31,7 @@ module "sks_nodepool" {
 
 resource "cloudflare_record" "sks_record" {
   zone_id = var.cloudflare_zone_id
-  name    = "${var.zone}.${var.env_name}"
+  name    = "${var.zone}-${var.env_name}"
   value   = module.sks_nodepool.nlb_ip_address
   type    = "A"
   ttl     = 1

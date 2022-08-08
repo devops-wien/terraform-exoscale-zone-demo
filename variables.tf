@@ -26,7 +26,7 @@ variable "target_port" {
 
 variable "image" {
   type    = string
-  default = "ghcr.io/devops-wien/docker-nextjs-demo:main"
+  default = "devopswien/docker-nextjs-demo"
 }
 
 variable "cloudflare_api_token" {

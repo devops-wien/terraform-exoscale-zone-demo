@@ -58,6 +58,6 @@ module "deployment" {
   host                   = module.sks.host
   dns_names              = ["${var.zone}.${var.domain}", "${var.env_name}.${var.domain}"]
   image                  = "var.image"
-  target_port            = "var.target_port"
+  target_port            = 80
   zone                   = var.zone
 }

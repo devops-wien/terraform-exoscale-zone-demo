@@ -50,6 +50,6 @@ variable "env_name" {
 }
 
 variable "domain" {
-  type = "string"
+  type = string
   description = "Domain-Name (e.g. example.com)"
 }

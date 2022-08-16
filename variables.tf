@@ -55,3 +55,13 @@ variable "domain" {
   type = string
   description = "Domain-Name (e.g. example.com)"
 }
+
+variable "deployment_strategy" {
+  description = "(Optional) The deployment strategy to use to replace existing pods with new ones. Can be 'Recreate' or 'RollingUpdate'. Default is RollingUpdate."
+  type = string
+  default = "RollingUpdate"
+  validation {
+    condition     = var.deployment_strategy == "RollingUpdate" || var.deployment_strategy == "Recreate"
+    error_message = "The deployment_strategy value must be valid. (RollingUpdate or Recreate)"
+  }
+}

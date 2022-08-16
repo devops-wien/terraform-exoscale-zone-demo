@@ -48,3 +48,7 @@ output "domain" {
 output "env_name" {
   value = var.env_name
 }
+
+output "deployment_strategy" {
+  value = var.deployment_strategy
+}

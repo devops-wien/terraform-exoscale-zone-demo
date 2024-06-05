@@ -28,7 +28,7 @@ module "sks_nodepool" {
   zone                   = var.zone
   prefix_name            = local.prefix_name
   instance_type          = var.sks_nodepool_instance_type
-  count                  = var.sks_nodepool_size
+  size                   = var.sks_nodepool_size
 }
 
 resource "cloudflare_record" "sks_record" {
